@@ -1,7 +1,36 @@
-let num1;
-let num2;
-let operator;
-let result;
+const firstNumberInput = document.getElementById('firstNumber');
+const secondNumberInput = document.getElementById('secondNumber');
+const operatorSelectInput = document.getElementById('operator');
+const calculateButton = document.getElementById('calculate');
+const resultParagraph = document.getElementById('result');
+const clearButton = document.getElementById('clear');
 
-console.log(num1, num2, operator, result);
+function clear() {
+    firstNumberInput.value = '';
+    secondNumberInput.value = '';
+    operatorSelectInput.value = '+';
+    resultParagraph.textContent = 'Result will be displayed here';
+}
 
+clearButton.addEventListener('click', clear);
+
+function calculate() {
+    const firstNumber = parseFloat(firstNumberInput.value);
+    const secondNumber = parseFloat(secondNumberInput.value);
+    const operator = operatorSelectInput.value;
+
+    let result;
+    if (operator === '+') {
+        result = firstNumber + secondNumber;
+    } else if (operator === '-') {
+        result = firstNumber - secondNumber;
+    } else if (operator === '*') {
+        result = firstNumber * secondNumber;
+    } else {
+        result = firstNumber / secondNumber;
+    }
+    
+    resultParagraph.textContent = 'Result: ' + result;
+}
+
+calculateButton.addEventListener('click', calculate);
