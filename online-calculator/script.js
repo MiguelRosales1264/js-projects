@@ -9,6 +9,7 @@ function clear() {
     firstNumberInput.value = '';
     secondNumberInput.value = '';
     operatorSelectInput.value = '+';
+    resultParagraph.style.backgroundColor = '#aeffb2';
     resultParagraph.textContent = 'Result will be displayed here';
 }
 
@@ -18,6 +19,14 @@ function calculate() {
     const firstNumber = parseFloat(firstNumberInput.value);
     const secondNumber = parseFloat(secondNumberInput.value);
     const operator = operatorSelectInput.value;
+
+    console.log(isNaN(firstNumber), isNaN(secondNumber));
+
+    if (isNaN(firstNumber) || isNaN(secondNumber)) {
+        resultParagraph.textContent = "Please enter a valid number";
+        resultParagraph.style.backgroundColor = '#F7DF04';
+        return;
+    }
 
     let result;
     if (operator === '+') {
@@ -32,5 +41,5 @@ function calculate() {
     
     resultParagraph.textContent = 'Result: ' + result;
 }
-
+ 
 calculateButton.addEventListener('click', calculate);
