@@ -35,8 +35,17 @@ function calculate() {
         result = firstNumber - secondNumber;
     } else if (operator === '*') {
         result = firstNumber * secondNumber;
-    } else {
+    } else if (operator === '/') {
+        if (secondNumber === 0 ) {
+            resultParagraph.textContent = "Cannot divide by zero";
+            resultParagraph.style.backgroundColor = '#F7DF04';
+            return;
+        }
         result = firstNumber / secondNumber;
+    } else {
+        resultParagraph.textContent = "Invalid operator";
+        resultParagraph.style.backgroundColor = '#F7DF04';
+        return;
     }
     
     resultParagraph.textContent = 'Result: ' + result;

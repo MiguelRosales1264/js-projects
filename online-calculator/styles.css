@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #007bff;
+  --primary-color-hover: #0056b3;
+  --warning-color: #F7DF04;
+  --error-color: #FF0000;
+  --success-color: #aeffb2;
+}
+
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -38,6 +46,7 @@ select {
   background: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
     no-repeat right 3px center;
   padding-right: 30px;
+  cursor: pointer;
 }
 
 button {
@@ -46,13 +55,14 @@ button {
   font-size: 16px;
   border-radius: 4px;
   border: none;
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color-hover);
 }
 
 #result {
