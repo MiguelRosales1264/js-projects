@@ -19,8 +19,7 @@ function calculate() {
     const firstNumber = parseFloat(firstNumberInput.value);
     const secondNumber = parseFloat(secondNumberInput.value);
     const operator = operatorSelectInput.value;
-
-    console.log(isNaN(firstNumber), isNaN(secondNumber));
+    let result;
 
     if (isNaN(firstNumber) || isNaN(secondNumber)) {
         resultParagraph.textContent = "Please enter a valid number";
@@ -28,27 +27,32 @@ function calculate() {
         return;
     }
 
-    let result;
-    if (operator === '+') {
-        result = firstNumber + secondNumber;
-    } else if (operator === '-') {
-        result = firstNumber - secondNumber;
-    } else if (operator === '*') {
-        result = firstNumber * secondNumber;
-    } else if (operator === '/') {
-        if (secondNumber === 0 ) {
-            resultParagraph.textContent = "Cannot divide by zero";
+    switch (operator) {
+        case "+":
+            result = firstNumber + secondNumber;
+            break;
+        case "-":
+            result = firstNumber - secondNumber;
+            break;
+        case "*":
+            result = firstNumber * secondNumber;
+            break;
+        case "/":
+            if (secondNumber === 0 ) {
+                resultParagraph.textContent = "Cannot divide by zero";
+                resultParagraph.style.backgroundColor = '#F7DF04';
+                return;
+            }
+            result = firstNumber / secondNumber;
+            break;
+        default:
+            resultParagraph.textContent = "Invalid operator";
             resultParagraph.style.backgroundColor = '#F7DF04';
             return;
-        }
-        result = firstNumber / secondNumber;
-    } else {
-        resultParagraph.textContent = "Invalid operator";
-        resultParagraph.style.backgroundColor = '#F7DF04';
-        return;
+
     }
     
     resultParagraph.textContent = 'Result: ' + result;
 }
- 
+
 calculateButton.addEventListener('click', calculate);
