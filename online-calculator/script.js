@@ -5,6 +5,10 @@ const calculateButton = document.getElementById('calculate');
 const resultParagraph = document.getElementById('result');
 const clearButton = document.getElementById('clear');
 
+clearButton.addEventListener('click', clear);
+calculateButton.addEventListener('click', calculate);
+
+
 function clear() {
     firstNumberInput.value = '';
     secondNumberInput.value = '';
@@ -13,7 +17,6 @@ function clear() {
     resultParagraph.textContent = 'Result will be displayed here';
 }
 
-clearButton.addEventListener('click', clear);
 
 function calculate() {
     const firstNumber = parseFloat(firstNumberInput.value);
@@ -54,5 +57,3 @@ function calculate() {
     
     resultParagraph.textContent = 'Result: ' + result;
 }
-
-calculateButton.addEventListener('click', calculate);
