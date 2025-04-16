@@ -65,7 +65,7 @@ button:hover {
   background-color: var(--primary-color-hover);
 }
 
-#result, #guessResult {
+#result {
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;

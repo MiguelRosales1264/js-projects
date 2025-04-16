@@ -25,15 +25,15 @@ function calculateFactorial(number) {
     // Guess 1 to 10
 
     
-    
-function guessNumberGame(guessedNumber) {
-    const guessInput = document.getElementById('guess');
-    const submitGuessButton = document.getElementById('submitGuess')
-    const guessResultParagraph = document.getElementById('guessResult');
+const guessInput = document.getElementById('guess');
+const submitGuessButton = document.getElementById('submitGuess')
+const guessResultParagraph = document.getElementById('result');
 
-    
-    const secretNumber = Math.floor(Math.random() * 10) + 1;
-    let guessedNumber = parseFloat(guessInput.value);
+
+const secretNumber = Math.floor(Math.random() * 10) + 1;
+let guessedNumber = parseFloat(guessInput.value);
+
+function guessNumberGame(guessedNumber) {
     do {
         if (guessedNumber < secretNumber) {
             console.log('Too low');
@@ -45,8 +45,10 @@ function guessNumberGame(guessedNumber) {
             guessResultParagraph.style.backgroundColor = '#F7DF04';
         } else {
             console.log('You guessed it!')
-            guessResultParagraph.textContent = 'You guess it!'
+            guessResultParagraph.textContent = 'You guessed it!'
             guessResultParagraph.style.backgroundColor = '#aeffb2';
         }
     } while (guessedNumber === secretNumber)
 }
+
+// submitGuessButton.addEventListener('click', guessNumberGame(guessedNumber));
